@@ -7,7 +7,7 @@ namespace cstr_hori_vert{
     ans.set_str(a.get_length() + b.get_length());
     ans.set_filename(a.get_filename());
     omp_set_num_threads(4);
-#pragma omp parallel for
+    #pragma omp parallel for
     for(int i = 0; i < a.get_length() + b.get_length(); i++){
       if (i < a.get_length())
       {

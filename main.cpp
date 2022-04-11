@@ -72,7 +72,6 @@ int main(){
   }
   fin.close();
 
-  #
   for (int i = 0; i < strVector.size(); i++){
         strVector[i]->output(strVector[i]->get_filename().c_str());
   }

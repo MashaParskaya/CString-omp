@@ -48,6 +48,7 @@ namespace cstr_hori_vert{
   CString::CString(const char* tmp, int len, string filename){
     if (tmp != NULL){
         set_str(len);
+        #pragma omp parallel for
         for (int i = 0; i < len; i++){
           if (int(tmp[i] != 0))
           {
@@ -64,6 +65,7 @@ namespace cstr_hori_vert{
   CString::CString(CString &tmp){
     if (tmp.stroka != NULL){
         set_str(tmp.length);
+        #pragma omp parallel for
         for (int i = 0; i < tmp.length; i++){
             stroka[i] = tmp.stroka[i];
         }
@@ -86,6 +88,7 @@ namespace cstr_hori_vert{
 
   CString& CString::operator= (const CString& a){
     set_str(a.length);
+    #pragma omp parallel for
     for (int i = 0; i < a.length; i++)
       stroka[i] = a.stroka[i];
     fileout = a.fileout;
@@ -94,6 +97,7 @@ namespace cstr_hori_vert{
 
   CString& CString::operator= (const string& a){
     set_str(a.size());
+    #pragma omp parallel for
     for (int i = 0; i < a.size(); i++)
       if (int(a[i] != 0))
       {
