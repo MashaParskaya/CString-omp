@@ -12,11 +12,11 @@ using namespace std;
 using namespace cstr_hori_vert;
 
 bool if_to_enable(){
-  cout << "Do you want to enable playground?(y/n):";
   string line;
   int attempts_left = 3;
   bool result = false;
   while (attempts_left != 0){
+    cout << "Do you want to enable playground?(y/n):";
     getline(cin, line);
     if (line == "y"){
       result = true;
@@ -24,6 +24,15 @@ bool if_to_enable(){
     }
     else if (line == "n"){
       break;
+    }
+    else{
+      attempts_left--;
+      if (attempts_left != 0){
+        cout << "bad attempt, try again\n" << attempts_left << " attempts left\n";
+      }
+      else{
+        cout << "sorry...goodbye\n";
+      }
     }
   }
   return result;
@@ -146,6 +155,7 @@ void playgroud_enable(){
       result.output();
     }
     else if (line == "quit"){
+      cout << "goodbye...";
       break;
     }
     else if (line != ""){

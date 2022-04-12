@@ -14,6 +14,7 @@
 #include "factory.hpp"
 #include "FactoryHori.hpp"
 #include "FactoryVert.hpp"
+#include "playground.hpp"
 
 using namespace std;
 using namespace cstr_hori_vert;
@@ -27,7 +28,7 @@ int main(){
   vector<CString*> strVector;
 
   string datafile;
-  cin >> datafile;
+  getline(cin, datafile);
   ifstream fin;
   fin.open(datafile.c_str(), ios::in);
   if (!fin.is_open()){
@@ -74,6 +75,10 @@ int main(){
 
   for (int i = 0; i < strVector.size(); i++){
         strVector[i]->output(strVector[i]->get_filename().c_str());
+  }
+
+  if (if_to_enable()){
+    playgroud_enable();
   }
 
   return 1;
