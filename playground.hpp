@@ -91,17 +91,17 @@ void playgroud_enable(){
     if (line == "help"){
       cout << "List of commands\n";
       cout << "    help         - for help\n";
-      cout << "    chmod plus 0 - to change plus mode to consistent (default consistent)\n";
-      cout << "    chmod plus 1 - to change plus mode to parallel (default consistent)\n";\
+      cout << "    chmod 0      - to change plus mode to not parallel (default not parallel)\n";
+      cout << "    chmod 1      - to change plus mode to parallel (default consistent)\n";\
       cout << "    mode         - to see the set mode\n";
-      cout << "    compute      - to compute the sum of two strings (multiplying string by an int is enabled, space is enterprited as a symbol, * as a math operator)\n";
+      cout << "    plus         - to compute the sum of two strings (multiplying string by an int is enabled, for example a*3 is aaa)\n";
       cout << "    print        - to print the last computed string (CAUTION it can be very long)\n";
       cout << "    quit         - to quit sandbox\n";
     }
-    else if (line == "chmod plus 0"){
+    else if (line == "chmod 0"){
       mode = 0;
     }
-    else if (line == "chmod plus 1"){
+    else if (line == "chmod 1"){
       mode = 1;
     }
     else if (line == "mode") {
@@ -109,12 +109,14 @@ void playgroud_enable(){
         cout << "parallel\n";
       }
       else{
-        cout << "consistent\n";
+        cout << "not parallel\n";
       }
     }
-    else if (line == "compute"){
+    else if (line == "plus"){
       string first, second;
+      cout << "Input first string:";
       cin >> first;
+      cout << "Input second string:";
       cin >> second;
       first = parse_string(first);
       if (first == "*mul went wrong*" || first == ""){
