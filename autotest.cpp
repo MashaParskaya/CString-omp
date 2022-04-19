@@ -1,5 +1,4 @@
 #include "autotest.hpp"
-#include "omp.h"
 #include <chrono>
 
 int test1(){
@@ -181,22 +180,6 @@ int test7(){
   return 0;
 }
 
-CStringH test_plus(CString& a, CString& b){
-  CStringH ans;
-  ans.set_str(a.get_length() + b.get_length());
-  ans.set_filename(a.get_filename());
-  for(int i = 0; i < a.get_length() + b.get_length(); i++){
-    if (i < a.get_length())
-    {
-      ans.set_element(i, a.get_element(i));
-    }
-    else
-    {
-      ans.set_element(i, b.get_element(i - a.get_length()));
-    }
-  }
-  return ans;
-}
 
 int parallel_test(long long len){
   cout << "Please, wait" << endl;
@@ -214,21 +197,22 @@ int parallel_test(long long len){
   auto elapsed_time = chrono::high_resolution_clock::now() - start_time;
   long long ns = chrono::duration_cast<chrono::microseconds>(elapsed_time).count();
   start_time = chrono::high_resolution_clock::now();
-  s_res_1 = test_plus(s1, s2);
+  s_res_1 = simple_plus(s1, s2);
   elapsed_time = chrono::high_resolution_clock::now() - start_time;
   ns = chrono::duration_cast<chrono::microseconds>(elapsed_time).count();
-  cout << "Time consumed without omp to concenate 2 strings of length " << len << ": " << ns << "ms" << endl;
+  cout << "Time consumed without omp to concenate 2 strings of length " << len << ": " << ns << "mks" << endl;
 
   start_time = chrono::high_resolution_clock::now();
   s_res_2 = s1 + s2;
   elapsed_time = chrono::high_resolution_clock::now() - start_time;
   ns = chrono::duration_cast<chrono::microseconds>(elapsed_time).count();
-  cout << "Time consumed with omp to concenate 2 strings of length " << len << ":    " << ns << "ms" << endl;
+  cout << "Time consumed with omp to concenate 2 strings of length " << len << ":    " << ns << "mks" << endl;
 
   delete []a;
   delete []b;
   return 1;
 }
+
 
 void Autotest(){
   cout << "Testing...\n";

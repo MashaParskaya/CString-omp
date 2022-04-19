@@ -8,6 +8,8 @@
 
 namespace cstr_hori_vert{
   CStringH operator+ (CString& a, CString& b);
+
+  CStringH simple_plus(CString& a, CString& b);
 }
 
 #endif

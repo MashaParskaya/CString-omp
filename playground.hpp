@@ -16,7 +16,7 @@ bool if_to_enable(){
   int attempts_left = 3;
   bool result = false;
   while (attempts_left != 0){
-    cout << "Do you want to enable playground?(y/n):";
+    cout << "Do you want to enable sandbox?(y/n):";
     getline(cin, line);
     if (line == "y"){
       result = true;
@@ -31,7 +31,7 @@ bool if_to_enable(){
         cout << "bad attempt, try again\n" << attempts_left << " attempts left\n";
       }
       else{
-        cout << "sorry...goodbye\n";
+        cout << "sorry, no attempts left\ngoodbye!\n";
       }
     }
   }
@@ -81,11 +81,11 @@ void playgroud_enable(){
   for (int i = 0; i < 50; i++){
     cout << endl;
   }
-  cout << "Wellcome to the playground!\nEnter \"help\" for help\n";
+  cout << "Wellcome to the sandbox!\nEnter \"help\" for help\n";
   int mode = 0;
   CStringH result;
   while (true){
-    cout << "host@playground>";
+    cout << "host@sandbox>";
     string line;
     getline(cin, line);
     if (line == "help"){
@@ -96,7 +96,7 @@ void playgroud_enable(){
       cout << "    mode         - to see the set mode\n";
       cout << "    compute      - to compute the sum of two strings (multiplying string by an int is enabled, space is enterprited as a symbol, * as a math operator)\n";
       cout << "    print        - to print the last computed string (CAUTION it can be very long)\n";
-      cout << "    quit         - to quit playground\n";
+      cout << "    quit         - to quit sandbox\n";
     }
     else if (line == "chmod plus 0"){
       mode = 0;
@@ -155,7 +155,7 @@ void playgroud_enable(){
       result.output();
     }
     else if (line == "quit"){
-      cout << "goodbye...";
+      cout << "goodbye!";
       break;
     }
     else if (line != ""){
