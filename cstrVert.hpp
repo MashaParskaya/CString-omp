@@ -21,7 +21,7 @@ namespace cstr_hori_vert{
 
     CStringV(const char* tmp, int len, string filename="STDOUT");
 
-    CStringV(CString &tmp);
+    CStringV(const CString &tmp);
 
     CStringV();
 

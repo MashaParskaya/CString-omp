@@ -22,7 +22,7 @@ namespace cstr_hori_vert{
 
     CStringH(const char* tmp, int len, string filename="STDOUT");
 
-    CStringH(CString &tmp);
+    CStringH(const CString &tmp);
 
     ~CStringH();
   };

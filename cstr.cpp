@@ -62,7 +62,7 @@ namespace cstr_hori_vert{
     }
   }
 
-  CString::CString(CString &tmp){
+  CString::CString(const CString &tmp){
     if (tmp.stroka != NULL){
         set_str(tmp.length);
         #pragma omp parallel for

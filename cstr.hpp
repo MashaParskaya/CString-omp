@@ -33,7 +33,7 @@ namespace cstr_hori_vert{
 
     CString(const char* tmp, int len, string filename="STDOUT");
 
-    CString(CString &tmp);
+    CString(const CString &tmp);
 
     CString& operator= (const CString& a);
 

@@ -40,7 +40,7 @@ namespace cstr_hori_vert{
 
   CStringH::CStringH(const char* tmp, int len, string filename) : CString(tmp, len, filename){}
 
-  CStringH::CStringH(CString &tmp) : CString(tmp){}
+  CStringH::CStringH(const CString &tmp) : CString(tmp){}
 
   CStringH::CStringH() : CString(){}
 
